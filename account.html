@@ -3,82 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Account – Trendy Zone</title>
+  <title>My Account – Trendy Zone</title>
+<link rel="stylesheet" href="account.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="account.css" />
-  <script src="account.js" defer></script>
+  <script src="account.js" ></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">
-        <a href="home.html">
-          <img src="imgs/Screenshot_2025-11-17_014833-removebg-preview.png" alt="Trendy Zone Logo" class="logo-img" />
-        </a>
-     
+      <div class="brand">
+        <a href="home.html"  style="color: #fff;"  class="logo" id="logo-text">TRENDY ZONE</a>
       </div>
       <ul class="nav-links">
         <li><a href="#" class="logout-btn">Logout</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="categories.html">Categories</a></li>
         <li><a href="products.html">Products</a></li>
-   
+        <li><a href="cart.html" class="cart-icon">🛒 <span id="cart-count">0</span></a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="profile-container">
-    <div id="profile-view">
-      <h2 id="view-name"></h2>
-      <p id="view-email"></p>
-      <p id="view-age"></p>
-      <p id="view-gender"></p>
-      <p id="view-phone"></p>
-      <p id="view-address"></p>
-      <p id="view-size"></p>
-      <div class="stats">
-        <p><strong>Cart Items:</strong> <span id="cart-count">0</span></p>
-        <p><strong>Orders:</strong> <span id="order-count">0</span></p>
-        <p><strong>Favorites:</strong> <span id="favorites-count">0</span></p>
-      </div>
-      <button id="edit-btn">Edit Profile</button>
+<main class="account-wrapper">
+  <h1>My Account</h1>
+
+  
+  <section id="profile-box">
+    <div class="section">
+      <h2>Personal Info</h2>
+      <p><strong>Name:</strong> <span id="view-name"></span></p>
+      <p><strong>Email:</strong> <span id="view-email"></span></p>
+      <p><strong>Phone:</strong> <span id="view-phone"></span></p>
+      <p><strong>Age:</strong> <span id="view-age"></span></p>
+      <p><strong>Address:</strong> <span id="view-address"></span></p>
+      <p><strong>Size:</strong> <span id="view-size"></span></p>
+      <p><strong>Shoe Size:</strong> <span id="view-shoe-size"></span></p>
     </div>
 
-    <form id="profile-form" class="user-form hidden">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" required />
+    <div class="section">
+      <h2>Account Stats</h2>
+      <p><strong>Cart Items:</strong> <span id="cart-count-display"></span></p>
+      <p><strong>Orders:</strong> <span id="order-count"></span></p>
+      <p><strong>Favorites:</strong> <span id="favorites-count"></span></p>
+    </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required />
+    <div class="section actions">
+      <h2>Actions</h2>
+      <button id="edit-btn">Edit Profile</button>
+    </div>
+  </section>
 
-      <label for="age">Age</label>
-      <input type="number" id="age" />
+  <!-- EDIT MODE -->
+  <form id="profile-form" class="user-form hidden">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required />
 
-      <label for="gender">Gender</label>
-      <select id="gender">
-        <option value="">Select</option>
-        <option>Female</option>
-        <option>Male</option>
-        <option>Other</option>
-      </select>
+    <label for="email">Email</label>
+    <input type="email" id="email" required />
 
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" />
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" />
 
-      <label for="address">Address</label>
-      <input type="text" id="address" />
 
-      <label for="size">Size</label>
-      <input type="text" id="size" />
+    <label for="age">Age</label>
+    <input type="number" id="age" />
 
-      <button type="submit">Save Changes</button>
-    </form>
-  </main>
+    <label for="address">Address</label>
+    <input type="text" id="address" />
 
+    <label for="size">Size</label>
+    <input type="text" id="size" />
+
+    <label for="shoe-size">Shoe Size</label>
+    <input type="text" id="shoe-size" />
+
+    <button type="submit">Save Changes</button>
+  </form>
+</main>
   <footer>
-<p>&copy; 2025 Trendy Zone | Designed with ♥ for your project
-
- <span>Professional Girly E-commerce Design</span></p>
+    <p>&copy; 2025 Trendy Zone | Designed with ♥ for your project<br />
+    <span>Professional Girly E-commerce Design</span></p>
   </footer>
 </body>
 </html>

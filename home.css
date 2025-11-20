@@ -37,7 +37,9 @@ header {
   border-bottom: 1px solid #eee;
   flex-wrap: wrap;
 }
-
+.hidden {
+  display: none !important;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -57,28 +59,73 @@ header {
   align-items: center;
 }
 
+
 .logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 30px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.6px;
   background: var(--accent);
   color: #fff;
   padding: 12px 20px;
   border-radius: 12px;
   cursor: pointer;
   user-select: none;
-  display: inline-block;
-  transition: background 0.3s ease;
-  text-align: center;
-}
-
-.logo:hover , 
-.logo:focus{
-  background: #e63670;
-  transform: translateY(-2px);
-  outline: none;
   text-decoration: none;
+  transition: background 0.22s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(255, 64, 129, 0.12);
+}
+.account-btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  display: inline-block;
 }
 
+.account-btn:hover {
+  background: #e63670;
+}
+
+.logo:hover {
+  background: #e63670;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(230, 54, 112, 0.12);
+}
+
+.logo:active {
+  transform: translateY(-1px);
+}
+
+
+.logo:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 64, 129, 0.12), 0 6px 18px rgba(0,0,0,0.06);
+}
+
+
+.header .logo,
+header .logo {
+  border: 1px solid rgba(255,255,255,0.06); 
+}
+
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+}
 .nav-links a:hover {
   color: var(--accent);
 }

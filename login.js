@@ -1,21 +1,59 @@
-$(document).ready(function () {
-  let $loginForm = $('#login-form');
-  let $signupForm = $('#signup-form');
-  let $errorMsg = $('#login-error');
+document.addEventListener('DOMContentLoaded', function () {
+  let loginForm = document.getElementById('login-form');
+  let signupForm = document.getElementById('signup-form');
+  let errorMsg = document.getElementById('login-error');
 
-  // Sign Up
-  $signupForm.on('submit', function (e) {
-    e.preventDefault();
+  function getUsers() {
+    let raw = localStorage.getItem('users');
+    let users = [];
+    try {
+      users = raw ? JSON.parse(raw) : [];
+    } catch {
+      users = [];
+    }
+    return users;
+  }
 
-    let name = $('#signup-name').val().trim();
-    let email = $('#signup-email').val().trim();
-    let password = $('#signup-password').val().trim();
+  function saveUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+  }
 
-    if (name && email && password) {
-      let user = {
+  function setCurrentUser(user) {
+    if (!Array.isArray(user.cart)) {
+      user.cart = [];
+    }
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  if (signupForm) {
+    signupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let name = document.getElementById('signup-name').value.trim();
+      let email = document.getElementById('signup-email').value.trim().toLowerCase();
+      let password = document.getElementById('signup-password').value.trim();
+      let phone = document.getElementById('signup-phone').value.trim();
+
+      if (!name || !email || !password || !phone) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      let users = getUsers();
+      let exists = users.find(function (u) {
+        return u.email === email;
+      });
+
+      if (exists) {
+        alert('An account with this email already exists.');
+        return;
+      }
+
+      let newUser = {
         name: name,
         email: email,
         password: password,
+        phone: phone,
         age: '',
         height: '',
         weight: '',
@@ -25,32 +63,39 @@ $(document).ready(function () {
         cart: []
       };
 
-      localStorage.setItem('user', JSON.stringify(user));
-      $signupForm[0].reset();
+      users.push(newUser);
+      saveUsers(users);
+      signupForm.reset();
       alert('Account created! You can now log in.');
-    }
-  });
+    });
+  }
 
-  // Login
-  $loginForm.on('submit', function (e) {
-    e.preventDefault();
+  if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    let email = $('#login-email').val().trim();
-    let password = $('#login-password').val().trim();
-    let storedUser = JSON.parse(localStorage.getItem('user'));
+      let email = document.getElementById('login-email').value.trim().toLowerCase();
+      let password = document.getElementById('login-password').value.trim();
+      let users = getUsers();
 
-    $errorMsg.text(''); // Clear previous error
+      if (errorMsg) errorMsg.textContent = '';
 
-    if (!storedUser || storedUser.email !== email) {
-      $errorMsg.text('No account found with this email.');
-      return;
-    }
+      let user = users.find(function (u) {
+        return u.email === email;
+      });
 
-    if (storedUser.password !== password) {
-      $errorMsg.text('Incorrect password. Please try again.');
-      return;
-    }
+      if (!user) {
+        if (errorMsg) errorMsg.textContent = 'No account found with this email.';
+        return;
+      }
 
-    window.location.href = 'account.html';
-  });
+      if (user.password !== password) {
+        if (errorMsg) errorMsg.textContent = 'Incorrect password. Please try again.';
+        return;
+      }
+
+      setCurrentUser(user);
+      window.location.href = 'account.html';
+    });
+  }
 });
