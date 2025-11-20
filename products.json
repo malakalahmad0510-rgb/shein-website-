@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p001",
+    "name": "Summer Mini Dress",
+    "price": 29.99,
+    "description": "Lightweight floral mini, perfect for sunny days.",
+    "category": "dresses",
+    "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p002",
+    "name": "Ribbed Crop Top",
+    "price": 12.5,
+    "description": "Stretchy ribbed crop top in neutral tones.",
+    "category": "tops",
+    "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p003",
+    "name": "High-Waist Jeans",
+    "price": 39.0,
+    "description": "Classic straight-leg high-waist jeans.",
+    "category": "bottoms",
+    "image": "projectimages/jeanspink.jpeg"
+  },
+  {
+    "id": "p004",
+    "name": "Mini Crossbody Bag",
+    "price": 24.99,
+    "description": "Compact faux-leather crossbody with chain strap.",
+    "category": "bags",
+    "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p005",
+    "name": "Dainty Necklace",
+    "price": 8.99,
+    "description": "Gold-plated dainty necklace with pendant.",
+    "category": "jewelry",
+    "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p006",
+    "name": "Velvet Eyeshadow Palette",
+    "price": 15.0,
+    "description": "Soft matte + shimmer shades for everyday looks.",
+    "category": "makeup",
+    "image": "projectimages/p.jpeg"
+  }
+]

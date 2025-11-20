@@ -1,0 +1,204 @@
+
+:root{
+  --pink-50: #fff6fb;
+  --pink-100: #ffeaf2;
+  --pink-300: #ffb6d6;
+  --pink-500: #ff6fa3;
+  --pink-700: #d44a86;
+  --card: #ffffff;
+  --muted: #8b7b86;
+  --text: #151318;
+  --shadow: 0 10px 30px rgba(21,19,24,0.06);
+  --radius: 12px;
+  --gap: 18px;
+  --max-width: 1180px;
+  font-family: "Poppins", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  /* single clean pink background */
+  background: var(--pink-100);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Constrain content */
+.wrap{
+  width:calc(100% - 48px);
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid rgba(21,19,24,0.04);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 0;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:52px;height:52px;border-radius:10px;
+  background:linear-gradient(135deg,var(--pink-500),var(--pink-700));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;
+  box-shadow:var(--shadow);
+}
+.brand-text h1{margin:0;font-size:18px;font-weight:600}
+.subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* Header actions */
+.header-actions{display:flex;gap:14px;align-items:center}
+.search{display:flex;align-items:center;gap:8px;background:var(--card);padding:6px;border-radius:12px;box-shadow:0 6px 18px rgba(21,19,24,0.04);}
+.search input{border:0;outline:none;background:transparent;padding:8px 10px;font-size:14px;width:260px;color:var(--text)}
+#search-clear{background:transparent;border:0;color:var(--muted);cursor:pointer}
+.nav-links{display:flex;gap:10px;align-items:center}
+.nav-links a{font-weight:600;text-decoration:none;color:var(--text);padding:8px 12px;border-radius:10px}
+.nav-links .badge{background:linear-gradient(90deg,#ffddea,#ffd1e8);color:var(--pink-700)}
+.nav-links .primary{background:var(--pink-500);color:#fff}
+
+/* Hero */
+.hero{padding:28px 0 12px}
+.hero-inner{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center}
+.hero-left h2{margin:0;font-size:28px}
+.hero-left p{color:var(--muted);margin-top:8px;font-size:15px}
+.hero-right img{width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+
+/* Categories header */
+.categories-header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.categories-header h3{margin:0;font-size:18px}
+
+/* Chips */
+.filters{padding:8px 0 14px}
+.chips{display:flex;gap:10px;overflow:auto;padding-bottom:6px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+  background:transparent;border:1px solid rgba(21,19,24,0.06);cursor:pointer;font-weight:600;color:var(--muted);
+  transition:all .16s ease;
+}
+.chip .chip-icon{
+  width:36px;
+  height:36px;
+  padding:4px;
+  border-radius:10px;
+  overflow:hidden;              /* clip overflow so image stays inside */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.03);
+}
+.chip .chip-icon i{color:var(--pink-700); font-size:14px;} /* icon color when inactive */
+.chip .chip-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;           /* preserve aspect, fit inside the white square */
+  display:block;
+}
+.chip.active{background:linear-gradient(90deg,var(--pink-500),var(--pink-300));color:#fff;border-color:transparent}
+.chip.active .chip-icon i{color:#fff;} /* icon color remains visible when active */
+
+/* Products grid: fixed 4 columns on desktop */
+.products-wrap{padding:6px 0 40px}
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:var(--gap);
+  margin-top:8px;
+}
+
+/* Card: force equal size and make content fit inside */
+.category-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:12px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .12s ease, box-shadow .12s ease;
+  overflow:hidden;
+  height:430px;         /* increased to accommodate taller image */
+  min-height:430px;
+}
+
+/* larger image area so visuals are taller */
+.img-wrap{
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--pink-50);
+  height:240px;        /* increased height (was 160/220) */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  background:transparent;
+}
+
+/* card body: use flex so content fits and button sits below */
+.card-body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
+  padding-top:6px;
+}
+
+/* tighter typography to avoid overflow */
+.category-card h4{
+  margin:0;
+  font-size:15px;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.price{color:var(--pink-500);font-weight:800;font-size:15px;margin:6px 0}
+.desc{
+  margin:0;color:var(--muted);font-size:13px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+
+/* CTA visible without being pinned to bottom; small margin */
+.cat-cta{
+  margin-top:8px;
+  display:block;
+  padding:10px;border-radius:10px;text-decoration:none;text-align:center;
+  background:linear-gradient(90deg,var(--pink-700),var(--pink-500));color:#fff;font-weight:700;
+  flex-shrink:0;
+}
+
+/* Slightly reduce card shadow on hover to keep layout consistent */
+.category-card:hover{ transform:translateY(-4px); box-shadow:0 16px 34px rgba(21,19,24,0.07); }
+
+/* Responsive: keep proportions but maintain 4/3/2/1 columns */
+@media (max-width:1100px){ .grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:820px){ .grid{ grid-template-columns: repeat(2, 1fr); } .category-card{ height:400px; } }
+@media (max-width:520px){ .grid{ grid-template-columns: 1fr; } .category-card{ height:auto; } .search input{width:140px} .hero-inner{grid-template-columns:1fr} }
+
+/* Focus outlines for accessibility */
+.chip:focus, .cat-cta:focus, .nav-links a:focus, .search input:focus{
+  outline:3px solid rgba(255,111,163,0.16);
+  outline-offset:3px;border-radius:8px;
+}
+
