@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Trendy Zone</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="login.css" />
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="home.html">
+          <img src="imgs/Screenshot_2025-11-17_014833-removebg-preview.png" alt="Trendy Zone Logo" class="logo-img" />
+        </a>
+      
+      </div>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li>
+          <form class="search-bar">
+            <input type="text" placeholder="Search trendy items..." />
+            <button type="submit">🔍</button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <h1>Welcome to Trendy Zone</h1>
+
+    <section class="form-section">
+      <h2>Login</h2>
+      <form id="login-form" class="user-form">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required />
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required />
+         <div id="login-error" class="error-msg"></div>
+
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <section class="form-section">
+      <h2>Sign Up</h2>
+      <form id="signup-form" class="user-form">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" required />
+
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" required />
+
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" required />
+
+        
+        </select>
+
+        <label for="signup-phone">Phone</label>
+        <input type="tel" id="signup-phone" required />
+
+    
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Trendy Zone | Designed with ♥ for your project
+
+Professional Girly E-commerce Design</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Account – Trendy Zone</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="account.css" />
+  <script src="account.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="home.html">
+          <img src="imgs/Screenshot_2025-11-17_014833-removebg-preview.png" alt="Trendy Zone Logo" class="logo-img" />
+        </a>
+     
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="logout-btn">Logout</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="products.html">Products</a></li>
+   
+      </ul>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <div id="profile-view">
+      <h2 id="view-name"></h2>
+      <p id="view-email"></p>
+      <p id="view-age"></p>
+      <p id="view-gender"></p>
+      <p id="view-phone"></p>
+      <p id="view-address"></p>
+      <p id="view-size"></p>
+      <div class="stats">
+        <p><strong>Cart Items:</strong> <span id="cart-count">0</span></p>
+        <p><strong>Orders:</strong> <span id="order-count">0</span></p>
+        <p><strong>Favorites:</strong> <span id="favorites-count">0</span></p>
+      </div>
+      <button id="edit-btn">Edit Profile</button>
+    </div>
+
+    <form id="profile-form" class="user-form hidden">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" />
+
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option value="">Select</option>
+        <option>Female</option>
+        <option>Male</option>
+        <option>Other</option>
+      </select>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" />
+
+      <label for="size">Size</label>
+      <input type="text" id="size" />
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </main>
+
+  <footer>
+<p>&copy; 2025 Trendy Zone | Designed with ♥ for your project
+
+ <span>Professional Girly E-commerce Design</span></p>
+  </footer>
+</body>
+</html>
