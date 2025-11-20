@@ -24,22 +24,26 @@ body {
   flex-wrap: wrap;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #d63384;
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+  text-align: center;
 }
 
-.logo-img {
- 
-  height: 60px;
-  width: auto;
-  background: transparent;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-
+.logo-text:hover,
+.logo-text:focus {
+  background: #e63670;
+    transform: translateY(-2px);
+  outline: none;
+  text-decoration: none;
 }
 
 .nav-links {
