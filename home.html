@@ -19,14 +19,16 @@
         <li><a href="about.html">About</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="categories.html">Categories</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="product.html">Products</a></li>
    <li id="account-link" class="hidden">
   <a href="account.html" class="account-btn">My Account</a>
 </li>
         <li>
-          <form class="search-bar" aria-label="Search trendy items">
-            <input type="text" name="search" placeholder="Search trendy items..." aria-label="Search" />
-            <button type="submit" aria-label="Search button">🔍</button>
+        <div class="header-actions">
+        <div class="search" role="search" aria-label="Search products">
+          <input id="q" type="search" placeholder="Search items, id, or description..." aria-label="Search products">
+          <button id="search-clear" title="Clear search" aria-label="Clear search" hidden><i class="fa fa-times"></i></button>
+        </div>
           </form>
         </li>
         <li><a href="cart.html" class="cart-icon" aria-label="View cart">🛒 <span id="cart-count"></span></a></li>

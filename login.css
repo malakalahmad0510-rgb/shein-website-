@@ -52,7 +52,7 @@ header {
   transition: background 0.3s ease, transform 0.12s ease;
   text-align: center;
   text-decoration: none;
-  
+
 }
 
 .logo:hover,
@@ -83,31 +83,16 @@ header {
   color: var(--accent);
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #eee;
-  padding: 6px 12px;
-  border-radius: 10px;
-  background: #fafafa;
-}
+.header-actions{display:flex;gap:14px;align-items:center}
+.search{display:flex;align-items:center;gap:8px;background:var(--card);padding:6px;border-radius:12px;box-shadow:0 6px 18px rgba(21,19,24,0.04);}
+.search input{border:0;outline:none;background:transparent;padding:8px 10px;font-size:14px;width:260px;color:var(--text)}
+#search-clear{background:transparent;border:0;color:var(--muted);cursor:pointer}
+.nav-links{display:flex;gap:10px;align-items:center}
+.nav-links a{font-weight:600;text-decoration:none;color:var(--text);padding:8px 12px;border-radius:10px}
+.nav-links .badge{background:linear-gradient(90deg,#ffddea,#ffd1e8);color:var(--pink-700)}
+.nav-links .primary{background:var(--pink-500);color:#fff}
 
-.search-bar input {
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 14px;
-  width: 160px;
-}
 
-.search-bar button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* Auth Container */
 .auth-container {
   max-width: 900px;
   margin: 40px auto;
