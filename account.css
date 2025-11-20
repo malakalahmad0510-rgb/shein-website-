@@ -1,5 +1,5 @@
 :root {
-  --accent: #ff4081;
+ --accent: #e07b9c;
   --accent-light: #ffe4ed;
   --text-muted: #777;
   --radius: 14px;
@@ -25,17 +25,25 @@ body {
 }
 
 /* Header */
+header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 18px 20px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 30px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   flex-wrap: wrap;
+  padding: 18px 30px;
 }
-
+.brand {
+  display: flex;
+  align-items: center;
+}
 .logo {
   font-size: 20px;
   font-weight: 800;
@@ -43,8 +51,17 @@ body {
   color: #fff;
   padding: 12px 20px;
   border-radius: 12px;
+  margin-right: 30px;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(255, 64, 129, 0.12);
+}
+.logo:hover {
+  background: #d65983;
+  transform: translateY(-3px);
+}
+.subtitle {
+  color: var(--accent);
+  font-size: 13px;
 }
 
 .nav-links {

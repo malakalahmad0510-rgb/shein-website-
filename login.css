@@ -1,5 +1,5 @@
 :root {
-  --accent: #ff4081;
+  --accent: #e07b9c;
   --accent-light: #ffe4ed;
   --text-muted: #777;
   --radius: 14px;
@@ -19,7 +19,6 @@ body {
   flex-direction: column;
 }
 
-/* Header and Navbar */
 header {
   background: #fff;
   border-bottom: 1px solid #eee;
@@ -28,17 +27,56 @@ header {
   z-index: 10;
   padding: 18px 20px;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 30px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
   flex-wrap: wrap;
+  padding: 18px 30px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-right: 30px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255, 64, 129, 0.12);
+}
+.logo:hover {
+  background: #d65983;
+  transform: translateY(-3px);
+}
+.subtitle {
+  color: var(--accent);
+  font-size: 13px;
 }
 
+
+.auth-container h1 {
+  color: var(--accent);
+}
+
+.user-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.user-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(224, 123, 156, 0.2);
+}
+
+footer span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+}
 .logo {
   font-size: 20px;
   font-weight: 700;
