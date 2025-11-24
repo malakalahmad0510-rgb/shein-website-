@@ -30,7 +30,7 @@ $(document).ready(function () {
   $('#address').val(user.address || '');
   $('#size').val(user.size || '');
 
-  // Toggle to edit mode
+  
   $editBtn.on('click', function () {
     $view.addClass('hidden');
     $form.removeClass('hidden');
