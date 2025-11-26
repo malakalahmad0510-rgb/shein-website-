@@ -56,7 +56,10 @@ function renderProducts(products) {
         <h4>${escapeHtml(p.name)}</h4>
         <p class="price">$${Number(p.price).toFixed(2)}</p>
         <p class="desc">${escapeHtml(p.description)}</p>
-        <button class="${btnClass}" data-id="${p.id}">${btnText}</button>
+        <div class="card-actions">
+          <button class="${btnClass}" data-id="${p.id}">${btnText}</button>
+          <button class="cat-detail" data-id="${p.id}">Product Detail</button>
+        </div>
       </div>
     `;
 
@@ -66,10 +69,17 @@ function renderProducts(products) {
       if (!img.src || img.src.trim() === '') img.src = svgFallback;
     }
 
-    const btn = article.querySelector('button');
+    const btn = article.querySelector('.cat-cta');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       addToCart(p);
+    });
+
+    const detailBtn = article.querySelector('.cat-detail');
+    detailBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('View product detail:', p);
+    
     });
 
     categoriesEl.appendChild(article);
