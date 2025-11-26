@@ -13,7 +13,7 @@
     "price": 12.5,
     "description": "Stretchy ribbed crop top in neutral tones.",
     "category": "tops",
-    "image": "projectimages/p.jpeg"
+    "image": "projectimages/dress.jpeg"
   },
   {
     "id": "p003",
@@ -29,15 +29,15 @@
     "price": 24.99,
     "description": "Compact faux-leather crossbody with chain strap.",
     "category": "bags",
-    "image": "projectimages/p.jpeg"
+    "image": "projectimages/bag.jpeg"
   },
   {
     "id": "p005",
-    "name": "Dainty Necklace",
+    "name": "Dainty Gold Necklace",
     "price": 8.99,
     "description": "Gold-plated dainty necklace with pendant.",
     "category": "jewelry",
-    "image": ""
+    "image": "projectimages/necklace.jpeg"
   },
   {
     "id": "p006",
@@ -45,14 +45,118 @@
     "price": 15.0,
     "description": "Soft matte + shimmer shades for everyday looks.",
     "category": "makeup",
-    "image": "projectimages/p.jpeg"
-  },{
+    "image": "projectimages/eyeshadow.jpeg"
+  },
+  {
     "id": "p007",
-    "name": "eeddow Palette",
+    "name": "Shimmer Eye Palette",
     "price": 15.0,
     "description": "Soft matte + shimmer shades for everyday looks.",
     "category": "makeup",
+    "image": "projectimages/palette.jpeg"
+  },
+  {
+    "id": "p008",
+    "name": "Oversized Sweater",
+    "price": 35.99,
+    "description": "Cozy oversized sweater in soft knit fabric.",
+    "category": "tops",
+    "image": "projectimages/sweater.jpeg"
+  },
+  {
+    "id": "p009",
+    "name": "Floral Wrap Dress",
+    "price": 34.99,
+    "description": "Elegant wrap dress with floral print.",
+    "category": "dresses",
     "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p010",
+    "name": "Cargo Pants",
+    "price": 44.99,
+    "description": "Trendy cargo pants with multiple pockets.",
+    "category": "bottoms",
+    "image": "projectimages/jeanspink.jpeg"
+  },
+  {
+    "id": "p011",
+    "name": "Baby Tee",
+    "price": 11.99,
+    "description": "Classic fitted baby tee in solid colors.",
+    "category": "tops",
+    "image": "projectimages/crop.jpeg"
+  },
+  {
+    "id": "p012",
+    "name": "Leather Bucket Bag",
+    "price": 54.99,
+    "description": "Stylish leather bucket bag for everyday use.",
+    "category": "bags",
+    "image": "projectimages/bag.jpeg"
+  },
+  {
+    "id": "p013",
+    "name": "Pearl Stud Earrings",
+    "price": 9.99,
+    "description": "Elegant pearl stud earrings with gold posts.",
+    "category": "jewelry",
+    "image": "projectimages/necklace.jpeg"
+  },
+  {
+    "id": "p014",
+    "name": "Liquid Lipstick Set",
+    "price": 18.99,
+    "description": "Long-lasting liquid lipstick in 5 shades.",
+    "category": "makeup",
+    "image": "projectimages/eyeshadow.jpeg"
+  },
+  {
+    "id": "p015",
+    "name": "Bronzer & Highlighter Duo",
+    "price": 16.99,
+    "description": "Creamy bronzer and shimmer highlighter combo.",
+    "category": "makeup",
+    "image": "projectimages/palette.jpeg"
+  },
+  {
+    "id": "p016",
+    "name": "Satin Slip Dress",
+    "price": 28.99,
+    "description": "Luxe satin slip dress for evening wear.",
+    "category": "dresses",
+    "image": "projectimages/p.jpeg"
+  },
+  {
+    "id": "p017",
+    "name": "Wide-Leg Trousers",
+    "price": 42.99,
+    "description": "Elegant wide-leg trousers in neutral tones.",
+    "category": "bottoms",
+    "image": "projectimages/jeanspink.jpeg"
+  },
+  {
+    "id": "p018",
+    "name": "Lace Camisole",
+    "price": 13.99,
+    "description": "Delicate lace camisole perfect for layering.",
+    "category": "tops",
+    "image": "projectimages/crop.jpeg"
+  },
+  {
+    "id": "p019",
+    "name": "Beaded Clutch",
+    "price": 32.99,
+    "description": "Glamorous beaded clutch for special occasions.",
+    "category": "bags",
+    "image": "projectimages/bag.jpeg"
+  },
+  {
+    "id": "p020",
+    "name": "Layered Chain Necklace",
+    "price": 14.99,
+    "description": "Trendy layered chain necklace set.",
+    "category": "jewelry",
+    "image": "projectimages/necklace.jpeg"
   }
-
 ]
