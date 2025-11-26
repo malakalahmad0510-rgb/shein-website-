@@ -37,7 +37,7 @@
     "price": 8.99,
     "description": "Gold-plated dainty necklace with pendant.",
     "category": "jewelry",
-    "image": "projectimages/p.jpeg"
+    "image": ""
   },
   {
     "id": "p006",
@@ -46,5 +46,13 @@
     "description": "Soft matte + shimmer shades for everyday looks.",
     "category": "makeup",
     "image": "projectimages/p.jpeg"
+  },{
+    "id": "p007",
+    "name": "eeddow Palette",
+    "price": 15.0,
+    "description": "Soft matte + shimmer shades for everyday looks.",
+    "category": "makeup",
+    "image": "projectimages/p.jpeg"
   }
+
 ]
