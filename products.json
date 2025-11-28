@@ -5,7 +5,7 @@
     "price": 29.99,
     "description": "Lightweight floral mini, perfect for sunny days.",
     "category": "dresses",
-    "image": "projectimages/p.jpeg"
+    "image": "projectimages/dress offsholder.jpeg"
   },
   {
     "id": "p002",
@@ -13,7 +13,7 @@
     "price": 12.5,
     "description": "Stretchy ribbed crop top in neutral tones.",
     "category": "tops",
-    "image": "projectimages/dress.jpeg"
+    "image": "projectimages/top crop.jpeg"
   },
   {
     "id": "p003",
@@ -29,7 +29,7 @@
     "price": 24.99,
     "description": "Compact faux-leather crossbody with chain strap.",
     "category": "bags",
-    "image": "projectimages/bag.jpeg"
+    "image": "projectimages/bagfloral.jpeg"
   },
   {
     "id": "p005",
@@ -37,31 +37,31 @@
     "price": 8.99,
     "description": "Gold-plated dainty necklace with pendant.",
     "category": "jewelry",
-    "image": "projectimages/necklace.jpeg"
+    "image": "projectimages/accesories.jpeg"
   },
   {
     "id": "p006",
-    "name": "Velvet Eyeshadow Palette",
+    "name": "Daily powder",
     "price": 15.0,
-    "description": "Soft matte + shimmer shades for everyday looks.",
+    "description": "Soft matte + louse powder for everyday look.",
     "category": "makeup",
-    "image": "projectimages/eyeshadow.jpeg"
+    "image":"projectimages/makeup powder.jpeg"
   },
   {
     "id": "p007",
-    "name": "Shimmer Eye Palette",
-    "price": 15.0,
-    "description": "Soft matte + shimmer shades for everyday looks.",
-    "category": "makeup",
-    "image": "projectimages/palette.jpeg"
+    "name": "Braclet",
+    "price": 6.0,
+    "description": "A minimalist bracelet designed to complement any outfit.",
+    "category": "accessories",
+    "image": "projectimages/braclet.jpeg"
   },
   {
     "id": "p008",
-    "name": "Oversized Sweater",
-    "price": 35.99,
-    "description": "Cozy oversized sweater in soft knit fabric.",
+    "name": "blouse",
+    "price": 20.99,
+    "description": " elegant blouse in soft knit fabric.",
     "category": "tops",
-    "image": "projectimages/sweater.jpeg"
+    "image": "projectimages/blouse.jpeg"
   },
   {
     "id": "p009",
@@ -69,23 +69,23 @@
     "price": 34.99,
     "description": "Elegant wrap dress with floral print.",
     "category": "dresses",
-    "image": "projectimages/p.jpeg"
+    "image": "projectimages/long dress.jpeg"
   },
   {
     "id": "p010",
-    "name": "Cargo Pants",
+    "name": "Pink Skirt",
     "price": 44.99,
-    "description": "Trendy cargo pants with multiple pockets.",
+    "description": "A stylish pink skirt with a soft fabric and flattering fit.",
     "category": "bottoms",
-    "image": "projectimages/jeanspink.jpeg"
+    "image": "projectimages/pink skirt.jpeg"
   },
   {
     "id": "p011",
-    "name": "Baby Tee",
-    "price": 11.99,
-    "description": "Classic fitted baby tee in solid colors.",
-    "category": "tops",
-    "image": "projectimages/crop.jpeg"
+    "name": "clips",
+    "price": 7.99,
+    "description": "Trendy clips to add a stylish touch to any hairstyle.",
+    "category": "accessories",
+    "image": "projectimages/clips.jpeg"
   },
   {
     "id": "p012",
@@ -93,15 +93,15 @@
     "price": 54.99,
     "description": "Stylish leather bucket bag for everyday use.",
     "category": "bags",
-    "image": "projectimages/bag.jpeg"
+    "image": "projectimages/pink bag.jpeg"
   },
   {
     "id": "p013",
-    "name": "Pearl Stud Earrings",
+    "name": "colorful Earrings",
     "price": 9.99,
     "description": "Elegant pearl stud earrings with gold posts.",
     "category": "jewelry",
-    "image": "projectimages/necklace.jpeg"
+    "image": "projectimages/earings.jpeg"
   },
   {
     "id": "p014",
@@ -109,7 +109,7 @@
     "price": 18.99,
     "description": "Long-lasting liquid lipstick in 5 shades.",
     "category": "makeup",
-    "image": "projectimages/eyeshadow.jpeg"
+    "image": "projectimages/lipbulmb.jpeg"
   },
   {
     "id": "p015",
@@ -117,15 +117,15 @@
     "price": 16.99,
     "description": "Creamy bronzer and shimmer highlighter combo.",
     "category": "makeup",
-    "image": "projectimages/palette.jpeg"
+    "image": "projectimages/bronzer.jpeg"
   },
   {
     "id": "p016",
-    "name": "Satin Slip Dress",
+    "name": "corset Dress",
     "price": 28.99,
-    "description": "Luxe satin slip dress for evening wear.",
+    "description": "A stylish corset dress designed to shape your figure and highlight your curves.",
     "category": "dresses",
-    "image": "projectimages/p.jpeg"
+    "image": "projectimages/dress.jpeg"
   },
   {
     "id": "p017",
@@ -137,11 +137,11 @@
   },
   {
     "id": "p018",
-    "name": "Lace Camisole",
+    "name": "Skirt jeans",
     "price": 13.99,
-    "description": "Delicate lace camisole perfect for layering.",
-    "category": "tops",
-    "image": "projectimages/crop.jpeg"
+    "description": "A modern jean skirt for a chic and relaxed outfit.",
+    "category": "bottoms",
+    "image": "projectimages/skirt jeans.jpeg"
   },
   {
     "id": "p019",
@@ -157,6 +157,6 @@
     "price": 14.99,
     "description": "Trendy layered chain necklace set.",
     "category": "jewelry",
-    "image": "projectimages/necklace.jpeg"
+    "image": "projectimages/layer necklace.jpeg"
   }
 ]
