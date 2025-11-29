@@ -50,12 +50,17 @@
     <div class="wrap hero-inner">
       <div class="hero-left">
         <h2>Discover Your Trendy Style</h2>
-        <p>Handpicked dresses, tops, bottoms, bags, jewelry and makeup — all on a budget. </p>
+        <p> Discover Your Trendy Style offers handpicked fashion and beauty on a budget.
+Find dresses, tops, bottoms, bags, and jewelry to express yourself.
+Mix and match pieces to create stylish, versatile outfits.
+Affordable, trendy, and perfect for any occasion.</p>
 
         <!-- Search (added) -->
     
       </div>
-    
+      <figure class="hero-right" aria-hidden="true">
+        <img src="projectimages/shein.jpeg" alt="Trendy Zone hero image">
+      </figure>
     </div>
   </section>
 
@@ -67,27 +72,59 @@
 
     <!-- Chips / Filters -->
     <section class="filters" aria-label="Filter products">
-      <div class="chips" role="tablist" aria-label="Category filters">
-        <button class="chip active" data-filter="all" role="tab" aria-selected="true"><span class="chip-icon"><i
-              class="fa fa-th-large"></i></span><span class="chip-label">All</span></button>
-        <button class="chip" data-filter="dresses" role="tab"><span class="chip-icon"><i
-              class="fa fa-person-dress"></i></span><span class="chip-label">Dresses</span></button>
-        <button class="chip" data-filter="tops" role="tab"><span class="chip-icon"><i
-              class="fa fa-shirt"></i></span><span class="chip-label">Tops</span></button>
-        <button class="chip" data-filter="bottoms" role="tab"><span class="chip-icon imgs"><img
-              src="projectimages/jean.png" alt="jeans icon"></span><span class="chip-label">Bottoms</span></button>
-        <button class="chip" data-filter="bags" role="tab"><span class="chip-icon"><i
-              class="fa fa-bag-shopping"></i></span><span class="chip-label">Bags</span></button>
-        <button class="chip" data-filter="jewelry" role="tab"><span class="chip-icon"><i
-              class="fa fa-gem"></i></span><span class="chip-label">Jewelry</span></button>
-        <button class="chip" data-filter="makeup" role="tab"><span class="chip-icon"><i
-              class="fa fa-paint-brush"></i></span><span class="chip-label">Makeup</span></button>
-      </div>
-          <div class="search" role="search" aria-label="Search products">
-          <input id="q" name="q" type="search" placeholder="Search by name,description" aria-label="Search products">
-          <button id="search-clear" type="button" aria-label="Clear search" hidden>✕</button>
-        </div>
-    </section>
+  <div class="chips" role="tablist" aria-label="Category filters">
+
+    <button class="chip active" data-filter="all" role="tab" aria-selected="true">
+      <span class="chip-icon">
+        <img src="projectimages/apps.png" alt="all icon">
+      </span>
+      <span class="chip-label">All</span>
+    </button>
+
+    <button class="chip" data-filter="dresses" role="tab">
+      <span class="chip-icon">
+        <img src="projectimages/dress icon.png" alt="dress icon">
+      </span>
+      <span class="chip-label">Dresses</span>
+    </button>
+
+    <button class="chip" data-filter="tops" role="tab">
+      <span class="chip-icon">
+        <img src="projectimages/top icon.png" alt="top icon">
+      </span>
+      <span class="chip-label">Tops</span>
+    </button>
+
+    <button class="chip" data-filter="bottoms" role="tab">
+      <span class="chip-icon imgs">
+        <img src="projectimages/yoga-pants.png" alt="jeans icon">
+      </span>
+      <span class="chip-label">Bottoms</span>
+    </button>
+
+    <button class="chip" data-filter="bags" role="tab">
+      <span class="chip-icon">
+        <img src="projectimages/bag icon.png" alt="bag icon">
+      </span>
+      <span class="chip-label">Bags</span>
+    </button>
+
+    <button class="chip" data-filter="jewelry" role="tab">
+      <span class="chip-icon">
+        <img src="projectimages/jewerly icon.png" alt="jewelry icon">
+      </span>
+      <span class="chip-label">Jewelry</span>
+    </button>
+
+    <button class="chip" data-filter="makeup" role="tab">
+      <span class="chip-icon">
+        <img src="projectimages/makeup icon.png" alt="makeup icon">
+      </span>
+      <span class="chip-label">Makeup</span>
+    </button>
+
+  </div>
+</section>
 
     <!-- Products grid (rendered from products.json by product.js) -->
     <section class="products-wrap">
