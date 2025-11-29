@@ -1,3 +1,4 @@
+// ===== User Helpers =====
 function getUser() {
   let raw = localStorage.getItem('user');
   try {
@@ -11,35 +12,34 @@ function saveUser(u) {
   localStorage.setItem('user', JSON.stringify(u));
 }
 
+// ===== Cart Count =====
 function updateCartCount() {
-  let updated = getUser();
-  let count = Array.isArray(updated.cart) ? updated.cart.length : 0;
+  let user = getUser();
+  let count = Array.isArray(user.cart) ? user.cart.length : 0;
   $('#cart-count').text(count);
 }
 
+// ===== Navigation Visibility =====
 function updateNavVisibility(user) {
   let isLoggedIn = user.name && user.name !== 'Guest';
+
+  // Toggle buttons
+  $('a[href="login.html"]').toggleClass('hidden', isLoggedIn);
   $('#account-link').toggleClass('hidden', !isLoggedIn);
   $('.logout-btn').toggleClass('hidden', !isLoggedIn);
-  $('a[href="login.html"]').toggleClass('hidden', isLoggedIn);
 }
 
+// ===== Document Ready =====
 $(document).ready(function () {
   let user = getUser();
   if (!Array.isArray(user.cart)) user.cart = [];
   saveUser(user);
 
-  if ($('.brand').length && user.name) {
-    if ($('.welcome-msg').length === 0) {
-      $('<div class="welcome-msg" aria-hidden="true"></div>')
-        .text(`Welcome, ${user.name}!`)
-        .appendTo('.brand');
-    }
-  }
-
+  // Update UI
   updateCartCount();
   updateNavVisibility(user);
 
+  // Add to cart
   $('.add-to-cart').off('click.addToCart').on('click.addToCart', function () {
     let productName = $(this).data('name');
     let productPrice = parseFloat($(this).data('price'));
@@ -49,15 +49,20 @@ $(document).ready(function () {
     currentUser.cart.push({ name: productName, price: productPrice });
     saveUser(currentUser);
     updateCartCount();
-    $('#cart-count').animate({ fontSize: '1.15rem' }, 120).animate({ fontSize: '' }, 120);
+
+    $('#cart-count')
+      .animate({ fontSize: '1.15rem' }, 120)
+      .animate({ fontSize: '' }, 120);
   });
 
+  // Logout
   $('.logout-btn').off('click.logout').on('click.logout', function (e) {
     e.preventDefault();
     localStorage.removeItem('user');
     window.location.href = 'login.html';
   });
 
+  // Logo click → home
   $('#logo-text').off('click.logo').on('click.logo', function () {
     window.location.href = 'home.html';
   });

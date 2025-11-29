@@ -56,7 +56,7 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+  background-color: #e07b9c;
   color: #fff;
   display: flex;
   align-items: center;

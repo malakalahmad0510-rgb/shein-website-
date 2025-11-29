@@ -202,6 +202,7 @@ body {
   color: #f86596;
   margin-right: 30px;
 }
+.hidden { display: none !important; }
 /* ========== HERO ========== */
 .hero {
   background: linear-gradient(135deg, #ffd6e8, #ffe4ed);
