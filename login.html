@@ -8,36 +8,25 @@
   <script src="login.js" defer></script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-
+<header class="site-header">
   <div class="wrap header-inner">
     <div class="brand">
-      <a href="home.html" class="logo-text" id="logo-text" aria-label="Go to home page" style="color: white;">
+      <a href="home.html" class="logo-text" aria-label="Go to home page">
         <div class="logo">TZ</div>
-      </a>
-      <div class="brand-text">
-        <div class="subtitle">Girly • Trendy • Affordable</div>
-      </div>
-    </div>
-  </div>
-
-      
-      </div>
-      <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="product.html">Products</a></li>
-        <li>
-          <div class="header-actions">
-        <div class="search" role="search" aria-label="Search products">
-          <input id="q" type="search" placeholder="Search items, id, or description..." aria-label="Search products">
-          <button id="search-clear" title="Clear search" aria-label="Clear search" hidden><i class="fa fa-times"></i></button>
+        <div class="brand-text">
+          <h1>Trendy Zone</h1>
+          <div class="subtitle">Girly • Trendy • Affordable</div>
         </div>
-          </form>
-        </li>
-      </ul>
+      </a>
+    </div>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="product.html">Products</a>
+      <a href="cart.html" class="cart-link" aria-label="Cart">Cart <span id="cart-count">0</span></a>
+      <a href="about.html">About Us</a>
     </nav>
-  </header>
+  </div>
+</header>
 
   <main class="auth-container">
     <h1>Welcome to Trendy Zone</h1>

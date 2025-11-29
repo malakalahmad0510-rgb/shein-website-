@@ -1,5 +1,6 @@
 /* Cart Page Specific Styles */
 
+
 .page-header {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -458,4 +459,14 @@
     .modal-btn {
         width: 100%;
     }
+}
+
+footer {
+  background: var(--accent-light);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-muted);
+  border-top: 1px solid #eee;
+  margin-top: auto;
 }
