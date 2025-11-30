@@ -1,55 +1,69 @@
-// ===== User Helpers =====
-function getUser() {
-  let raw = localStorage.getItem('user');
+// ===== Cart Helpers =====
+function getCart() {
+  let raw = localStorage.getItem('tz_cart');
   try {
-    return raw ? JSON.parse(raw) : { name: 'Guest', cart: [] };
+    return raw ? JSON.parse(raw) : [];
   } catch {
-    return { name: 'Guest', cart: [] };
+    return [];
   }
 }
 
-function saveUser(u) {
-  localStorage.setItem('user', JSON.stringify(u));
+function saveCart(cart) {
+  localStorage.setItem('tz_cart', JSON.stringify(cart));
 }
 
 // ===== Cart Count =====
 function updateCartCount() {
-  let user = getUser();
-  let count = Array.isArray(user.cart) ? user.cart.length : 0;
+  let cart = getCart();
+  // Count total quantity, not just items
+  let count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   $('#cart-count').text(count);
 }
 
 // ===== Navigation Visibility =====
-function updateNavVisibility(user) {
+function updateNavVisibility() {
+  let raw = localStorage.getItem('user');
+  let user = raw ? JSON.parse(raw) : { name: 'Guest' };
   let isLoggedIn = user.name && user.name !== 'Guest';
 
-  // Toggle buttons
+  // Toggle nav links
   $('a[href="login.html"]').toggleClass('hidden', isLoggedIn);
   $('#account-link').toggleClass('hidden', !isLoggedIn);
   $('.logout-btn').toggleClass('hidden', !isLoggedIn);
+
+  // Show welcome message
+  if (isLoggedIn) {
+    $('#welcome-msg').text(`Welcome, ${user.name}`);
+  } else {
+    $('#welcome-msg').text('Welcome, Guest');
+  }
 }
 
 // ===== Document Ready =====
 $(document).ready(function () {
-  let user = getUser();
-  if (!Array.isArray(user.cart)) user.cart = [];
-  saveUser(user);
-
-  // Update UI
+  // Update UI on load
   updateCartCount();
-  updateNavVisibility(user);
+  updateNavVisibility();
 
   // Add to cart
   $('.add-to-cart').off('click.addToCart').on('click.addToCart', function () {
-    let productName = $(this).data('name');
-    let productPrice = parseFloat($(this).data('price'));
-    if (!productName || isNaN(productPrice)) return;
+    let product = {
+      id: $(this).data('id') || $(this).closest('.product-card').data('product-id'),
+      name: $(this).data('name'),
+      price: parseFloat($(this).data('price')),
+      image: $(this).closest('.product-card').find('img').attr('src'),
+      quantity: 1,
+      size: 'M'
+    };
 
-    let currentUser = getUser();
-    currentUser.cart.push({ name: productName, price: productPrice });
-    saveUser(currentUser);
+    if (!product.name || isNaN(product.price)) return;
+
+    let cart = getCart();
+    cart.push(product);
+    saveCart(cart);
     updateCartCount();
 
+    // Animate cart badge
     $('#cart-count')
       .animate({ fontSize: '1.15rem' }, 120)
       .animate({ fontSize: '' }, 120);
