@@ -1,10 +1,10 @@
 // Get DOM elements
-const cartItemsEl = document.getElementById('cart-items');
-const totalItemsEl = document.getElementById('total-items');
-const cartCountEl = document.getElementById('cart-count');
-const subtotalEl = document.getElementById('subtotal');
-const taxEl = document.getElementById('tax');
-const totalEl = document.getElementById('total');
+let cartItemsEl = document.getElementById('cart-items');
+let totalItemsEl = document.getElementById('total-items');
+let cartCountEl = document.getElementById('cart-count');
+let subtotalEl = document.getElementById('subtotal');
+let taxEl = document.getElementById('tax');
+let totalEl = document.getElementById('total');
 
 // Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
@@ -13,22 +13,22 @@ let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 function init() {
     renderCart();
     updateSummary();
-      updateCartCount();
+    updateCartCount();
     createModalHTML();
 }
-function updateCartCount() {
-  const raw = localStorage.getItem('tz_cart');
-  const cart = raw ? JSON.parse(raw) : [];
-  const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  if (cartCountEl) cartCountEl.textContent = count;
-}
 
+function updateCartCount() {
+    let raw = localStorage.getItem('tz_cart');
+    let cart = raw ? JSON.parse(raw) : [];
+    let count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    if (cartCountEl) cartCountEl.textContent = count;
+}
 
 // Create Modal HTML (added once to DOM)
 function createModalHTML() {
     if (document.getElementById('checkout-modal')) return;
     
-    const modalHTML = `
+    let modalHTML = `
         <div id="checkout-modal" class="modal" style="display: none;">
             <div class="modal-overlay"></div>
             <div class="modal-content">
@@ -64,39 +64,40 @@ function createModalHTML() {
     
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
+
 // Attach add-to-cart handler for all product cards
 document.querySelectorAll('.add-to-cart').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const product = {
-      id: btn.dataset.id || btn.closest('.product-card').dataset.productId,
-      name: btn.dataset.name || btn.closest('.product-card').querySelector('h3').textContent,
-      price: parseFloat(btn.dataset.price) || 0,
-      image: btn.closest('.product-card').querySelector('img').src,
-      quantity: 1,
-      size: 'M'
-    };
+    btn.addEventListener('click', () => {
+        let product = {
+            id: btn.dataset.id || btn.closest('.product-card').dataset.productId,
+            name: btn.dataset.name || btn.closest('.product-card').querySelector('h3').textContent,
+            price: parseFloat(btn.dataset.price) || 0,
+            image: btn.closest('.product-card').querySelector('img').src,
+            quantity: 1,
+            size: 'M'
+        };
 
-    cart.push(product);
-    saveCart();
-    renderCart();
-    updateSummary();
+        cart.push(product);
+        saveCart();
+        renderCart();
+        updateSummary();
 
-    // Animate cart badge
-    if (cartCountEl) {
-      cartCountEl.animate([{ transform: 'scale(1.2)' }, { transform: 'scale(1)' }], { duration: 200 });
-    }
-  });
+        // Animate cart badge
+        if (cartCountEl) {
+            cartCountEl.animate([{ transform: 'scale(1.2)' }, { transform: 'scale(1)' }], { duration: 200 });
+        }
+    });
 });
 
 // Open Checkout Modal
 function openCheckoutModal() {
-    const modal = document.getElementById('checkout-modal');
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = subtotal * 0.08;
-    const total = subtotal + tax;
+    let modal = document.getElementById('checkout-modal');
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let tax = subtotal * 0.08;
+    let total = subtotal + tax;
 
     // Populate order items
-    const itemsHTML = cart.map(item => `
+    let itemsHTML = cart.map(item => `
         <div class="modal-item">
             <div class="item-name">${item.name}</div>
             <div class="item-details">${item.quantity}x • Size: ${item.size} • $${item.price.toFixed(2)}</div>
@@ -114,7 +115,7 @@ function openCheckoutModal() {
 
 // Close Checkout Modal
 window.closeCheckoutModal = function () {
-    const modal = document.getElementById('checkout-modal');
+    let modal = document.getElementById('checkout-modal');
     modal.style.display = 'none';
 };
 
@@ -134,7 +135,7 @@ window.confirmCheckout = function () {
 
 // Success Modal
 function showSuccessModal() {
-    const successHTML = `
+    let successHTML = `
         <div id="success-modal" class="modal" style="display: flex;">
             <div class="modal-overlay"></div>
             <div class="modal-content success">
@@ -152,7 +153,7 @@ function showSuccessModal() {
 
 // Redirect to Products
 window.redirectToProducts = function () {
-    const modal = document.getElementById('success-modal');
+    let modal = document.getElementById('success-modal');
     if (modal) modal.remove();
     window.location.href = 'product.html';
 };
@@ -178,7 +179,7 @@ function renderCart() {
             saveCart();
         }
 
-        const el = document.createElement('article');
+        let el = document.createElement('article');
         el.className = 'cart-item';
         el.innerHTML = `
       <div class="cart-item-img">
@@ -207,77 +208,4 @@ function renderCart() {
         <button class="remove-btn" onclick="removeItem('${item.id}')" style="background-color: #ffb6d6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.3s; text-decoration: none;">Remove</button>
       </div>
     `;
-        cartItemsEl.appendChild(el);
-    });
-}
-
-// Update Quantity
-window.updateQuantity = function (id, change) {
-    const item = cart.find(i => i.id === id);
-    if (!item) return;
-
-    item.quantity += change;
-
-    if (item.quantity < 1) {
-        // If quantity goes below 1, confirm removal
-        if (confirm('Remove this item from cart?')) {
-            removeItem(id);
-            return;
-        } else {
-            item.quantity = 1; // Revert to 1
-        }
-    }
-
-    saveCart();
-    renderCart();
-    updateSummary();
-};
-
-// Remove Item
-window.removeItem = function (id) {
-    cart = cart.filter(i => i.id !== id);
-    saveCart();
-    renderCart();
-    updateSummary();
-};
-
-// Update Size
-window.updateSize = function (id, newSize) {
-    const item = cart.find(i => i.id === id);
-    if (item) {
-        item.size = newSize;
-        saveCart();
-    }
-};
-
-// Update Summary Calculations
-function updateSummary() {
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = subtotal * 0.08; // Mock 8% tax
-    const total = subtotal + tax;
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-    subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-    taxEl.textContent = `$${tax.toFixed(2)}`;
-    totalEl.textContent = `$${total.toFixed(2)}`;
-
-    totalItemsEl.textContent = totalItems;
-    if (cartCountEl) cartCountEl.textContent = totalItems;
-}
-
-// Save to LocalStorage
-function saveCart() {
-    localStorage.setItem('tz_cart', JSON.stringify(cart));
-}
-
-// Checkout Function
-window.checkout = function () {
-    if (cart.length === 0) {
-        alert('Your cart is empty. Please add items before checkout.');
-        return;
-    }
-    openCheckoutModal();
-};
-
-// Run
-init();
+        cartItemsEl.append

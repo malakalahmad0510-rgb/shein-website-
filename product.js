@@ -1,17 +1,17 @@
-const categoriesEl = document.getElementById('categories');
-const chips = Array.from(document.querySelectorAll('.chip'));
-const searchInput = document.getElementById('q');
-const cartCountEl = document.getElementById('cart-count');
+let categoriesEl = document.getElementById('categories');
+let chips = Array.from(document.querySelectorAll('.chip'));
+let searchInput = document.getElementById('q');
+let cartCountEl = document.getElementById('cart-count');
 
 let allProducts = [];
 let activeFilter = 'all';
 let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 let currentPage = 1;
-const itemsPerPage = 8;
+let itemsPerPage = 8;
 
 async function loadProducts() {
   try {
-    const res = await fetch('products.json');
+    let res = await fetch('products.json');
     allProducts = await res.json();
     currentPage = 1;
     renderProducts(allProducts);
@@ -25,9 +25,9 @@ async function loadProducts() {
 }
 
 function renderProducts(products) {
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  const paginatedProducts = products.slice(start, end);
+  let start = (currentPage - 1) * itemsPerPage;
+  let end = start + itemsPerPage;
+  let paginatedProducts = products.slice(start, end);
 
   categoriesEl.innerHTML = '';
   if (!products.length) {
@@ -36,15 +36,15 @@ function renderProducts(products) {
     return;
   }
 
-  const svgFallback = 'data:image/svg+xml;utf8,' +
+  let svgFallback = 'data:image/svg+xml;utf8,' +
     encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%23ffb6d6"/><text x="50%" y="50%" font-family="Arial" font-size="24" fill="%23ffffff" dominant-baseline="middle" text-anchor="middle">Image</text></svg>');
 
   paginatedProducts.forEach(p => {
-    const isInCart = cart.some(item => item.id === p.id);
-    const btnText = isInCart ? 'In Cart' : 'Add to Cart';
-    const btnClass = isInCart ? 'cat-cta in-cart' : 'cat-cta';
+    let isInCart = cart.some(item => item.id === p.id);
+    let btnText = isInCart ? 'In Cart' : 'Add to Cart';
+    let btnClass = isInCart ? 'cat-cta in-cart' : 'cat-cta';
 
-    const article = document.createElement('article');
+    let article = document.createElement('article');
     article.className = 'category-card';
     article.dataset.category = p.category;
 
@@ -63,24 +63,23 @@ function renderProducts(products) {
       </div>
     `;
 
-    const img = article.querySelector('img');
+    let img = article.querySelector('img');
     if (img) {
       img.onerror = () => { img.src = svgFallback; img.style.objectFit = 'cover'; };
       if (!img.src || img.src.trim() === '') img.src = svgFallback;
     }
 
-    const btn = article.querySelector('.cat-cta');
+    let btn = article.querySelector('.cat-cta');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       addToCart(p);
     });
 
-    const detailBtn = article.querySelector('.cat-detail');
-detailBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  window.location.href = `product-detail.html?id=${p.id}`;
-});
+    let detailBtn = article.querySelector('.cat-detail');
+    detailBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = `product-detail.html?id=${p.id}`;
+    });
     categoriesEl.appendChild(article);
   });
 
@@ -88,15 +87,15 @@ detailBtn.addEventListener('click', (e) => {
 }
 
 function renderPagination(totalProducts) {
-  const totalPages = Math.ceil(totalProducts / itemsPerPage);
-  const paginationContainer = document.getElementById('pagination') || createPaginationContainer();
+  let totalPages = Math.ceil(totalProducts / itemsPerPage);
+  let paginationContainer = document.getElementById('pagination') || createPaginationContainer();
   
   paginationContainer.innerHTML = '';
 
   if (totalPages <= 1) return;
 
   // Previous button
-  const prevBtn = document.createElement('button');
+  let prevBtn = document.createElement('button');
   prevBtn.className = 'pagination-btn';
   prevBtn.textContent = '← Previous';
   prevBtn.disabled = currentPage === 1;
@@ -111,7 +110,7 @@ function renderPagination(totalProducts) {
 
   // Page numbers
   for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
+    let pageBtn = document.createElement('button');
     pageBtn.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
     pageBtn.textContent = i;
     pageBtn.addEventListener('click', () => {
@@ -123,7 +122,7 @@ function renderPagination(totalProducts) {
   }
 
   // Next button
-  const nextBtn = document.createElement('button');
+  let nextBtn = document.createElement('button');
   nextBtn.className = 'pagination-btn';
   nextBtn.textContent = 'Next →';
   nextBtn.disabled = currentPage === totalPages;
@@ -138,23 +137,23 @@ function renderPagination(totalProducts) {
 }
 
 function scrollToCategory() {
-  const categoryHeader = document.querySelector('.categories-header');
+  let categoryHeader = document.querySelector('.categories-header');
   if (categoryHeader) {
     categoryHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
 function createPaginationContainer() {
-  const container = document.createElement('div');
+  let container = document.createElement('div');
   container.id = 'pagination';
   container.className = 'pagination';
-  const productsWrap = document.querySelector('.products-wrap');
+  let productsWrap = document.querySelector('.products-wrap');
   productsWrap.appendChild(container);
   return container;
 }
 
 function addToCart(product) {
-  const existingItem = cart.find(item => item.id === product.id);
+  let existingItem = cart.find(item => item.id === product.id);
 
   if (existingItem) {
     window.location.href = 'cart.html';
@@ -169,7 +168,7 @@ function addToCart(product) {
   saveCart();
   updateCartCount();
 
-  const btn = document.querySelector(`button[data-id="${product.id}"]`);
+  let btn = document.querySelector(`button[data-id="${product.id}"]`);
   if (btn) {
     btn.textContent = 'In Cart';
     btn.classList.add('in-cart');
@@ -177,7 +176,7 @@ function addToCart(product) {
 }
 
 function updateCartCount() {
-  const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   if (cartCountEl) cartCountEl.textContent = count;
 }
 
@@ -199,7 +198,7 @@ function setupChips() {
 
 function setupSearch() {
   if (!searchInput) return;
-  const clearBtn = document.getElementById('search-clear');
+  let clearBtn = document.getElementById('search-clear');
   searchInput.addEventListener('input', () => {
     if (clearBtn) clearBtn.hidden = !searchInput.value;
     currentPage = 1;
@@ -217,13 +216,13 @@ function setupSearch() {
 }
 
 function applyFilters() {
-  const q = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
-  const filtered = allProducts.filter(p => {
-    const name = (p.name || '').toLowerCase();
-    const desc = (p.description || '').toLowerCase();
-    const id = (p.id || '').toLowerCase();
-    const matchesCategory = activeFilter === 'all' || p.category === activeFilter;
-    const matchesQuery = !q || name.includes(q) || desc.includes(q) || id.includes(q);
+  let q = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+  let filtered = allProducts.filter(p => {
+    let name = (p.name || '').toLowerCase();
+    let desc = (p.description || '').toLowerCase();
+    let id = (p.id || '').toLowerCase();
+    let matchesCategory = activeFilter === 'all' || p.category === activeFilter;
+    let matchesQuery = !q || name.includes(q) || desc.includes(q) || id.includes(q);
     return matchesCategory && matchesQuery;
   });
   renderProducts(filtered);
