@@ -72,6 +72,6 @@ $(document).ready(function () {
 
   // Logo click → home
   $('#logo-text').off('click.logo').on('click.logo', function () {
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
   });
 });
