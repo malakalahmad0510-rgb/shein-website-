@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trendy Zone — Product Details</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="product-detail.css">
+
+  <meta name="color-scheme" content="light dark">
+</head>
+<body class="shop-page">
+
+  <!-- Site header -->
+  <header>
+    <nav class="navbar">
+      <div class="wrap header-inner">
+        <div class="brand">
+          <a href="home.html" class="logo-text" id="logo-text" aria-label="Go to home page" style="color: white;">
+            <div class="logo">TZ</div>
+          </a>
+          <div class="brand-text">
+            <div class="subtitle">Girly • Trendy • Affordable</div>
+          </div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="product.html">Products</a></li>
+        <div class="header-actions">
+          <div class="search" role="search" aria-label="Search products">
+            <input id="q" type="search" placeholder="Search items, id, or description..." aria-label="Search products">
+            <button id="search-clear" title="Clear search" aria-label="Clear search" hidden><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <li><a href="cart.html" class="cart-icon" aria-label="View cart">🛒 <span id="cart-count"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-left">
+        <h2>Product Details</h2>
+        <p>Explore the details of this trendy item.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap main-content" id="main" role="main">
+    <section class="product-detail" id="product-detail">
+      <!-- Product details will be rendered here by JS -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Trendy Zone | Designed with ♥ for your project
+      <span>Professional Girly E-commerce Design</span></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="product-detail.js" defer></script>
+</body>
+</html>

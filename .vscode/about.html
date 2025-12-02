@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trendy Zone - Girly, Trendy, Affordable Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="brand">
+          <button class="logo-btn" onclick="navigateTo('home')" aria-label="Go to home page">
+            <div class="logo">TZ</div>
+            <div class="brand-text">
+              <div class="subtitle">Girly • Trendy • Affordable</div>
+            </div>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <button class="nav-btn" id="home-btn" onclick="navigateTo('home')">Home</button>
+          </li>
+          <li>
+            <button class="nav-btn" id="about-btn" onclick="navigateTo('about')">About</button>
+          </li>
+          <li>
+            <form class="search-form" onsubmit="handleSearch(event)">
+              <div class="search-wrapper">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Search items..."
+                  aria-label="Search products"
+                />
+                <button type="submit" class="search-btn" aria-label="Search">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </li>
+          <li>
+            <a href="#" class="cart-icon" aria-label="View cart">🛒 <span id="cart-count">0</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- Home page content -->
+    <div id="home-page" class="page">
+      <section class="hero">
+        <h1>Welcome to TRENDY ZONE</h1>
+        <p>Discover the latest arrivals and exclusive deals on stylish outfits and accessories.</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+      </section>
+
+      <section class="featured" id="products">
+        <h2>Trending Now</h2>
+        <div class="product-grid" id="home-products"></div>
+      </section>
+
+      <section class="reviews-section">
+        <h2 id="reviews-heading">Customer Reviews</h2>
+        <div class="reviews-grid" id="reviews-grid"></div>
+      </section>
+    </div>
+
+    <!-- About page content -->
+    <div id="about-page" class="page" style="display: none;">
+      <section class="hero">
+        <h1>About Trendy Zone</h1>
+        <p>Your destination for girly, trendy, and affordable fashion</p>
+      </section>
+
+      <div class="about-section">
+        <h2>Our Story</h2>
+        <p>
+          Welcome to Trendy Zone, where fashion meets affordability. We believe
+          every woman deserves to feel confident and stylish without breaking the
+          bank. Founded with a passion for bringing the latest trends to our
+          customers, we've built a community of fashion lovers who appreciate
+          quality, style, and great value.
+        </p>
+
+        <h3>What We Offer</h3>
+        <p>
+          At Trendy Zone, we curate a carefully selected collection of clothing,
+          accessories, and lifestyle products that embody the girly, trendy
+          aesthetic our customers love. From statement pieces to everyday
+          essentials, each item is chosen with care to ensure it meets our
+          standards of quality and style.
+        </p>
+
+        <h3>Our Values</h3>
+        <div class="values-grid">
+          <div class="value-card">
+            <h4>💖 Quality First</h4>
+            <p>
+              We source high-quality products that look great and last longer,
+              ensuring you get the best value for your money.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h4>✨ Trendy Styles</h4>
+            <p>
+              Stay ahead of the fashion curve with our constantly updated
+              collection of the latest trends and timeless classics.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h4>💰 Affordable Prices</h4>
+            <p>
+              Fashion should be accessible to everyone. We keep our prices
+              competitive without compromising on quality.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h4>🎀 Customer Love</h4>
+            <p>
+              Your satisfaction is our priority. We're here to make your shopping
+              experience delightful from start to finish.
+            </p>
+          </div>
+        </div>
+
+        <h3>Join Our Community</h3>
+        <p>
+          When you shop with Trendy Zone, you're not just buying clothes—you're
+          joining a community of fashion enthusiasts who support and inspire each
+          other. Follow us on social media to see styling tips, new arrivals, and
+          behind-the-scenes content. We can't wait to be part of your fashion
+          journey!
+        </p>
+
+        <div class="text-center">
+          <p class="thank-you">Thank you for choosing Trendy Zone ♥</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search page content -->
+    <div id="search-page" class="page" style="display: none;">
+      <section class="search-results">
+        <div class="search-results-wrapper">
+          <h2 id="search-title">Search Results</h2>
+          <p id="search-count"></p>
+          <div class="product-grid" id="search-products"></div>
+          <div id="no-results" class="no-results" style="display: none;">
+            <p>No products found matching your search.</p>
+            <p>Try different keywords or browse our full collection.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
