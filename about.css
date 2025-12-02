@@ -843,7 +843,7 @@ body {
   .add-to-cart-btn {
     min-width: 100%;
   }
-
+}
 
 @media (max-width: 480px) {
   .navbar {
