@@ -76,12 +76,11 @@ function renderProducts(products) {
     });
 
     const detailBtn = article.querySelector('.cat-detail');
-    detailBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('View product detail:', p);
-    
-    });
+detailBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
+  window.location.href = `product-detail.html?id=${p.id}`;
+});
     categoriesEl.appendChild(article);
   });
 

@@ -1,23 +1,15 @@
 // ===== Cart Helpers =====
-function getCart() {
-  let raw = localStorage.getItem('tz_cart');
-  try {
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
+let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 
-function saveCart(cart) {
+function saveCart() {
   localStorage.setItem('tz_cart', JSON.stringify(cart));
 }
 
 // ===== Cart Count =====
 function updateCartCount() {
-  let cart = getCart();
-  // Count total quantity, not just items
   let count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  $('#cart-count').text(count);
+  let cartCountEl = document.getElementById('cart-count');
+  if (cartCountEl) cartCountEl.textContent = count;
 }
 
 // ===== Navigation Visibility =====
@@ -58,10 +50,12 @@ $(document).ready(function () {
 
     if (!product.name || isNaN(product.price)) return;
 
-    let cart = getCart();
-    cart.push(product);
-    saveCart(cart);
-    updateCartCount();
+    let existingItem = cart.find(item => item.id === product.id);
+    if (!existingItem) {
+      cart.push(product);
+      saveCart();
+      updateCartCount();
+    }
 
     // Animate cart badge
     $('#cart-count')
