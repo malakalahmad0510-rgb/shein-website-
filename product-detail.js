@@ -1,4 +1,9 @@
 const productDetailEl = document.getElementById('product-detail');
+const cartCountEl = document.getElementById('cart-count');
+
+// Load saved cart count on page load
+let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+cartCountEl.textContent = cartCount;
 
 // Get product ID from URL parameters
 function getProductId() {
@@ -33,9 +38,6 @@ async function loadProductDetail() {
 
 // Render product details
 function renderProductDetail(product) {
-  const svgFallback = 'data:image/svg+xml;utf8,' +
-    encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%23ffb6d6"/><text x="50%" y="50%" font-family="Arial" font-size="24" fill="%23ffffff" dominant-baseline="middle" text-anchor="middle">Image</text></svg>');
-
   productDetailEl.innerHTML = `
     <div class="product-card">
       <div class="product-image">
@@ -46,26 +48,60 @@ function renderProductDetail(product) {
         <p class="product-price">$${Number(product.price).toFixed(2)}</p>
         <p class="product-description">${escapeHtml(product.description)}</p>
         <p class="product-category">Category: ${escapeHtml(product.category)}</p>
-        <a href="#" class="add-to-cart">Add to Cart</a>
+
+        <div class="product-actions">
+          <label>Size:</label>
+          <div class="size-options">
+            ${(product.sizes || ['S','M','L','XL']).map(size =>
+              `<button type="button" class="size-btn">${escapeHtml(size)}</button>`
+            ).join('')}
+          </div>
+
+          
+
+          <button class="btn add-to-cart">
+            <i class="fa fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   `;
-
-  // Image fallback
-  const img = productDetailEl.querySelector('img');
-  if (img) {
-    img.onerror = () => { img.src = svgFallback; img.style.objectFit = 'cover'; };
-    if (!img.src || img.src.trim() === '') img.src = svgFallback;
-  }
 }
+
+// Handle size selection
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('size-btn')) {
+    document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
+  }
+});
+
+// Handle Add to Cart
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.add-to-cart')) {
+    e.preventDefault();
+
+    const name = document.querySelector('.product-name')?.textContent;
+    const price = document.querySelector('.product-price')?.textContent;
+    const size = document.querySelector('.size-btn.active')?.textContent || 'Not selected';
+    const qty = parseInt(document.getElementById('quantity')?.value) || 1;
+
+    // Update cart count
+    cartCount += qty;
+    cartCountEl.textContent = cartCount;
+    localStorage.setItem('cartCount', cartCount);
+
+    alert(`${name} added to cart!\nSize: ${size}\nQty: ${qty}\nTotal items: ${cartCount}`);
+  }
+});
 
 /* small html-escape helper for safety */
 function escapeHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;')
-    .replace(/</g, '<')
-    .replace(/>/g, '>')
-    .replace(/"/g, '"')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
 

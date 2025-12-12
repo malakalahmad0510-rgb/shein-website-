@@ -18,12 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('users', JSON.stringify(users));
   }
 
-  function setCurrentUser(user) {
-    if (!Array.isArray(user.cart)) {
-      user.cart = [];
-    }
-    localStorage.setItem('user', JSON.stringify(user));
+function setCurrentUser(user) {
+  if (!Array.isArray(user.cart)) {
+    user.cart = [];
   }
+  localStorage.setItem('user', JSON.stringify(user));
+
+  // Add this line so cart.js knows you're logged in
+  localStorage.setItem('tz_logged_in', 'true');
+}
 
   if (signupForm) {
     signupForm.addEventListener('submit', function (e) {
@@ -69,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Account created! You can now log in.');
     });
   }
+  localStorage.setItem('tz_logged_in', 'true');
 
   if (loginForm) {
     loginForm.addEventListener('submit', function (e) {
@@ -94,8 +98,25 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+    
       setCurrentUser(user);
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('size-btn')) {
+    document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
+  }
+});
+// mark user as logged in for cart.js
+localStorage.setItem('tz_logged_in', 'true');
+
+// redirect to account or cart page
+window.location.href = 'account.html';
       window.location.href = 'account.html';
     });
   }
+  function logoutUser() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('tz_logged_in');
+  window.location.href = 'login.html';
+}
 });

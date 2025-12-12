@@ -247,7 +247,53 @@ body {
   margin-bottom: 30px;
   color: #222;
 }
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
+.signup-prompt {
+  margin-top: 12px;
+  font-size: 0.9em;
+  text-align: center;
+  color: var(--muted);
+}
+
+.signup-prompt a {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.signup-cta {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.95em;
+  color: var(--muted);
+}
+
+.arrow-button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.arrow-button:hover {
+  background: #e63670;
+}
+
+.arrow {
+  margin-left: 8px;
+  font-size: 1.2em;
+}
 /* Form Sections */
 .form-section {
   background: linear-gradient(145deg, #fff0f6, #ffffff);

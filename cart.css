@@ -462,7 +462,47 @@
     }
 }
 
+.qty-btn {
+  background-color: var(--pink-500);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
 
+.qty-btn:hover {
+  background-color: var(--pink-600);
+  transform: scale(1.05);
+}
+
+.qty-input {
+  width: 40px;
+  text-align: center;
+  border: 2px solid var(--pink-300);
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: white;
+  color: #333;
+}
+
+.remove-btn {
+  background-color: var(--pink-400);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: var(--pink-600);
+  transform: scale(1.05);
+}
 /* ========== FOOTER ========== */
 .site-footer {
   background: var(--card);
